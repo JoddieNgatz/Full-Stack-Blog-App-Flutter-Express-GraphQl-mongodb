@@ -6,4 +6,4 @@ const authorSchema = new Schema({
     url: String,
     major: String
 })
-module.exports = mongoose.model('Authors',authorsSchema);
+module.exports = mongoose.model('Authors',authorSchema);

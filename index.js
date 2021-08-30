@@ -4,7 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const schema = require('./schema/schema');
 const { graphqlHTTP } = require('express-graphql');
-require('dotenv').config();
+// require('dotenv').config();
 const corsOptions = {
     
     origin: "http://localhost:8081"

@@ -73,10 +73,10 @@ const RootMutation = new GraphQLObjectType({
         addArticle: {
             type: ArticleType,
             args: {
-                name: { type: new GraphQlNonNull(GraphQLString) },
-                topic: { type: new GraphQlNonNull(GraphQLString) },
-                date: { type: new GraphQlNonNull(GraphQLString) },
-                authorId: { type: GraphQlNonNull(GraphQLID) }, },
+                name: { type: new GraphQLNonNull(GraphQLString) },
+                topic: { type: new GraphQLNonNull(GraphQLString) },
+                date: { type: new GraphQLNonNull(GraphQLString) },
+                authorId: { type: GraphQLNonNull(GraphQLID) }, },
             resolve(parent, args) {
                 let articl = new articles({
                     name: args.name,
@@ -90,9 +90,9 @@ const RootMutation = new GraphQLObjectType({
         addAuthor: {
             type: authorType,
             args: {       
-            name: { type: new GraphQlNonNull(GraphQLString )},
-            url: { type: new GraphQlNonNull(GraphQLString) },
-            major: { type: new GraphQlNonNull(GraphQLString) }, },
+            name: { type: new GraphQLNonNull(GraphQLString )},
+            url: { type: new GraphQLNonNull(GraphQLString) },
+            major: { type: new GraphQLNonNull(GraphQLString) }, },
             resolve(parent, args) {
                 let authr = authors({
                     name: args.name,
