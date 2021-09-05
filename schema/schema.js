@@ -11,8 +11,10 @@ const ArticleType = new GraphQLObjectType({
         id: { type: GraphQLID },
         name: { type: GraphQLString },
         topic: { type: GraphQLString },
+        article: { type: GraphQLString },
         date: { type: GraphQLString },
         authorId: { type: GraphQLID },
+        authorName: { type: GraphQLString },
         author:{
             type: authorType,
             resolve(parent,args){
@@ -75,18 +77,42 @@ const RootMutation = new GraphQLObjectType({
             args: {
                 name: { type: new GraphQLNonNull(GraphQLString) },
                 topic: { type: new GraphQLNonNull(GraphQLString) },
+                article: { type: new GraphQLNonNull(GraphQLString) },
                 date: { type: new GraphQLNonNull(GraphQLString) },
+                authorName: { type: new GraphQLNonNull(GraphQLString) },
                 authorId: { type: GraphQLNonNull(GraphQLID) }, },
             resolve(parent, args) {
                 let articl = new articles({
                     name: args.name,
                     topic: args.topic,
+                    article: args.article,
                     date: args.date,
                     authorId: args.authorId
                 })
                 return articl.save();
             }
         },
+
+        editArticle: {
+            type: ArticleType,
+            args: {
+                name: { type: new GraphQLNonNull(GraphQLString) },
+                topic: { type: new GraphQLNonNull(GraphQLString) },
+                article: { type: new GraphQLNonNull(GraphQLString) },
+                date: { type: new GraphQLNonNull(GraphQLString) },
+                authorId: { type: GraphQLNonNull(GraphQLID) }, },
+            resolve(parent, args) {
+                let articl = new articles({
+                    name: args.name,
+                    topic: args.topic,
+                    article:args.article,
+                    date: args.date,
+                    authorId: args.authorId
+                })
+                return articl.save();
+            }
+        },
+
         addAuthor: {
             type: authorType,
             args: {       

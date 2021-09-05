@@ -63,6 +63,7 @@ json
     "addArticle": {
       "name": "intro to graphQl",
       "topic": "Software Engineering",
+      "article":"This is a test article"
       "date": "Today",
       "id": "612e5909dca0d571959121d9",
       "authorId": "123"
